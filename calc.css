@@ -1,0 +1,16 @@
+.calc__body{
+    background-color: blue;
+}
+
+.calc__display{
+    background-color: burlywood;
+    width: 75%;
+}
+
+.calc__numbers{
+    background-color: chartreuse;
+}
+
+.calc__operators{
+    background-color: cornsilk;
+}
