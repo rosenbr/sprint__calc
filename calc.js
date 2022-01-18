@@ -1,0 +1,1 @@
+// function that takes 3 arguments, number 1, number 2, and operator
