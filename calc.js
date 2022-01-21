@@ -1,4 +1,3 @@
-
 class Calculator {
     constructor(previousOpTextElement, currentOpTextElement) {
         this.previousOpTextElement = previousOpTextElement
@@ -7,6 +6,7 @@ class Calculator {
     }
 };
 
+// === | Functions | ===
 // Clear numbers/operators
 function clear() {
     this.currentOp = '';
@@ -69,6 +69,7 @@ function updateDisplay() {
     
 }
 
+// === | Variables | ===
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
@@ -78,6 +79,7 @@ const previousOpTextElement = document.querySelector('[data-previous-op]');
 const currentOpTextElement = document.querySelector('[data-current-op]');
 const calculator = new Calculator(previousOpTextElement, currentOpTextElement)
 
+// === | Event Listeners | ===
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText)
