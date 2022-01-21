@@ -8,7 +8,7 @@ class Calculator {
 };
 
 // Clear numbers/operators
-clear() {
+function clear() {
     this.currentOp = '';
     this.previousOp = '';
     this.operation = undefined;
@@ -16,18 +16,18 @@ clear() {
 
 
 // Remove single number/operator
-delete() {
+function del() {
     this.currentOp = this.currentOp.toString().slice(0, -1)
 }
 
 // Add numbers
-appendNumber(number) {
+function appendNumber(number) {
     if(number === '.' && this.currentOp.includes('.')) return
     this.currentOp = this.currentOp.toString() + number.toString()
 }
 
 // Select the operator
-chooseOperation(operation) {
+function chooseOperation(operation) {
     if(this.currentOp === '') return
     if(this.previousOp !== '') {
         this.compute()
@@ -38,7 +38,7 @@ chooseOperation(operation) {
 }
 
 // Display results
-compute() {
+function compute() {
     let computation
     const prev = parseFloat(this.previousOp)
     const current = parseFloat(this.currentOp)
@@ -65,7 +65,7 @@ compute() {
 }
 
 // Update output values
-updateDisplay() {
+function updateDisplay() {
     
 }
 
