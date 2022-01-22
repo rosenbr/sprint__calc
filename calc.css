@@ -8,7 +8,7 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(to right, #CBCE91FF, #EA738DFF);
-}
+    }
 
     .calc__grid {
         display: grid;
@@ -17,15 +17,15 @@ body {
         grid-template-columns: repeat(4, 100px);
         grid-template-rows: minmax(120px, auto) repeat(5, 100px);
         min-height: 100vh;
-    }
+        }
 
-    .cal__grid > button {
-        cursor: pointer;
-        font-size: 2rem;
-        border: 1px, solid #FFFFFF;
-        outline: none;
-        background-color: rbga(255, 255, 255, 0.75);
-    }
+        .cal__grid > button {
+            cursor: pointer;
+            font-size: 2rem;
+            border: 1px, solid #FFFFFF;
+            outline: none;
+            background-color: rbga(255, 255, 255, 0.75);
+        }
 
         .calc__grid > button::hover{
             background-color: #a9a9a9;
@@ -37,7 +37,7 @@ body {
             background-color: rbga(139, 0, 139, 0.8);
         }
 
-        .output {
+        .calc__output {
             grid-column: 1 / -1;
             background-color: rbga(0, 0, 0, 0.75);
             display: flex;
@@ -49,12 +49,12 @@ body {
             word-break: break-all;
         }
 
-        .output .calc__previousOp{
+        .calc__output .calc__previousOp {
             color: rgba(255, 255, 255, 0.75);
             font-size: 1.5rem;
         }
 
-        .output .calc__currentOp{
+        .calc__output .calc__currentOp {
             color: white;
             font-size: 2.5rem;
         }
