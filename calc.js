@@ -14,7 +14,6 @@ function clear() {
     this.operation = undefined;
 };
 
-
 // Remove single number/operator
 function del() {
     this.currentOp = this.currentOp.toString().slice(0, -1)
@@ -37,7 +36,7 @@ function chooseOperation(operation) {
     this.currentOp = ''
 }
 
-// Display results
+// Compute inputs
 function compute() {
     let computation
     const prev = parseFloat(this.previousOp)
@@ -64,9 +63,32 @@ function compute() {
     this.previousOp = ''
 }
 
+// Display number
+function getDisplayNumber(number) {
+    const stringNumber = number.toString()
+    const integerDigits = parseFloat(stringNumber.split('.')[0])
+    const decimalDigits = stringNumber.split('.')[1]
+    let integerDisplay
+    if(isNaN(integerDigits)) {
+        integerDisplay = ''
+    } else {
+        integerDisplay = integerDigits.toLocaleString('en', {maximumFractionDigits: 0})
+    }
+    if(decimalDigits != null) {
+        return `${integerDisplay}.${decimalDigits}`
+    } else {
+        return integerDisplay
+    }
+}
+
 // Update output values
 function updateDisplay() {
-    
+    this.currentOpTextElement.innerText = this.getDisplayNumber(this.currentOp)
+    if(this.operation != null) {
+        this.previousOpTextElement.innerText =`${this.getDisplayNumber(this.previousOp)} ${this.operation}`
+    } else {
+        this.previousOpTextElement.innerText = ''
+    }
 }
 
 // === | Variables | ===
@@ -103,3 +125,49 @@ allClearButton.addEventListener('click', button => {
     calculator.clear()
     calculator.updateDisplay()
 })
+
+deleteButton.addEventListener('click', buttonn => {
+    calculator.del()
+    calculator.updateDisplay()
+})
+
+document.addEventListener('keydown', function(event) {
+    let patternForNumbers = /[0-9]/g;
+    let patternForOperators = /[+\-*\/]/g
+    // Numbers
+    if(event.key.match(patternForNumbers)) {
+        event.preventDefault();
+        calculator.appendNumber(event.key)
+        calculator.updateDisplay()
+    }
+    // Decimal
+    if(event.key === '.') {
+        calculator.preventDefault();
+        calculator.appendNumber(event.key)
+        calculator.updateDisplay()
+    }
+    // Operators
+    if(event.key.match(patternForOperators)) {
+        event.preventDefault();
+        calculator.chooseOperation(event.key)
+        calculator.updateDisplay()
+    }
+    // Equals/compute
+    if(event.key === 'Enter' || event.key === '=') {
+        event.preventDefault();
+        calculator.compute()
+        calculator.updateDisplay()
+    }
+    // Delete
+    if(event.key === "Backspace") {
+        event.preventDefault();
+        calculator.del()
+        calculator.updateDisplay()
+    }
+    // All clear
+    if(event.key === 'Delete') {
+        event.preventDefault();
+        calculator.clear()
+        calculator.updateDisplay()
+    }
+});
