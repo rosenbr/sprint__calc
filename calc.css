@@ -1,13 +1,13 @@
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family: Gotham Rounded, sans-serif;
+    font-family: Monaco, monospace;
     font-weight: normal;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #CBCE91FF, #EA738DFF);
+    background: linear-gradient(to right, green, blue);
     }
 
     .calc__grid {
@@ -17,29 +17,29 @@ body {
         grid-template-columns: repeat(4, 100px);
         grid-template-rows: minmax(120px, auto) repeat(5, 100px);
         min-height: 100vh;
-        }
+    }
 
-        .cal__grid > button {
+        .calc__grid > button {
             cursor: pointer;
             font-size: 2rem;
-            border: 1px, solid #FFFFFF;
+            border: 1px, solid white;
             outline: none;
-            background-color: rbga(255, 255, 255, 0.75);
+            background-color: white;
         }
 
-        .calc__grid > button::hover{
-            background-color: #a9a9a9;
+        .calc__grid > button:hover {
+            background-color: lightgreen;
         }
 
         .span__two {
             grid-column: span 2;
             color: black;
-            background-color: rbga(139, 0, 139, 0.8);
+            background-color: #FFFFFF;
         }
 
         .calc__output {
             grid-column: 1 / -1;
-            background-color: rbga(0, 0, 0, 0.75);
+            background-color: black;
             display: flex;
             align-items: flex-end;
             justify-content: space-around;
@@ -47,10 +47,11 @@ body {
             padding: 10px;
             word-wrap: break-word;
             word-break: break-all;
+            color: white;
         }
 
         .calc__output .calc__previousOp {
-            color: rgba(255, 255, 255, 0.75);
+            color: white;
             font-size: 1.5rem;
         }
 
